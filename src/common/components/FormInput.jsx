@@ -28,7 +28,6 @@ function FormInput({ callback, label, type, placeholder }) {
 }
 
 const FormWrapper = styled.div`
-  margin-loveyou: 10px;
 `;
 
 export default FormInput;

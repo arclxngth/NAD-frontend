@@ -1,16 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-    :root {
-        /* --background-color: #E2EAFC; // real */
-        --background-color: #0C090A; // test
-        --sidebar-color: #101935;
-        --black: #000000;
-        --white: #FFFFFF;
-        --form-grey: #B6B6B6;
-        --input-border-hover: #6BFFB8;
-        --font-family: "Rubik";
-    }
+  :root {
+    /* --background-color: #E2EAFC; // real */
+    --background-color: #0C090A; // test
+    --sidebar-color: #101935;
+    --black: #000000;
+    --white: #FFFFFF;
+    --form-grey: #B6B6B6;
+    --input-border-hover: #6BFFB8;
+    --font-family: "Rubik";
+    --sidebar-width: 15%;
+  }
 `;
 
 // --primary-color: #D62E2E; // Brand Blue

@@ -8,6 +8,8 @@ import Variables from "./styles/Variables"
 import Fonts from "./styles/Fonts"
 import Reset from "./styles/Reset";
 import THEME from "./styles/MUI-theme";
+import TrafficPage from "./modules/traffic/pages/traffic-page";
+import SideBar from "./common/components/SideBar";
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
       <Fonts />
       <Variables />
       <Reset />
+      <SideBar />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/traffic" element={<TrafficPage />}/>
       </Routes>
       </ThemeProvider>
     </>

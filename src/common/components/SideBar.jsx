@@ -1,35 +1,37 @@
-import { Divider, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import DividerLine from './DividerLine';
+
 function SideBar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  if(location.pathname === '/') {
+    return null;
+  }
+
+  function onHandleClick(path) {
+    navigate(path);
+  }
+  
   const drawer = (
     <div>
       <ImageContainer>
         <img src="icons/NAD-logo.png" alt="" />
       </ImageContainer>
-      <Divider
-        sx={{ 
-          borderColor: "var(--white)",
-          width: "90%",
-          margin: "10px",
-        }}
-      />
+      <DividerLine color="var(--white)"/>
       <List>
         {['Home', 'Traffic', 'Demo'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
+            <ListItemButton onClick={(e) => onHandleClick("/" + text.toLowerCase())}>
+              <ListItemText primary={text}/>
+            </ListItemButton> 
           </ListItem>
         ))}
       </List>
-      <Divider
-        sx={{ 
-          borderColor: "var(--white)",
-          width: "90%",
-          margin: "10px",
-        }}
-      />
+      <DividerLine color="var(--white)"/>
     </div>
   );
 
@@ -40,7 +42,7 @@ function SideBar() {
             variant="permanent"
             sx={{
               display: { xs: 'none', sm: 'block' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: "10%" },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: "var(--sidebar-width)" },
             }}
             open
           >
