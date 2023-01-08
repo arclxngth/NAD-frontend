@@ -70,10 +70,12 @@ const User = styled.div`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  margin-left: var(--sidebar-width);
 `;
 
 const Content = styled.div`
-  margin: 25px 25px;
+  /* margin-left: var(--sidebar-width); */
 
   h1 {
     align-items: center;

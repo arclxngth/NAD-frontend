@@ -63,7 +63,7 @@ const ImageContainer = styled.div`
     justify-content: center;
     align-items: center;
 
-    margin: 20px 1px;
+    margin-top: 1vh;
 
     width: 100%;
   }

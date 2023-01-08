@@ -6,8 +6,8 @@ import Graph from '../../../common/components/Graph';
 function HomePage() {
   return (
     <>
+      <NavBar pageName="HOME PAGE" />
       <Container>
-        <NavBar pageName="HOME PAGE" />
         <Content>
           <Graph title="Traffic" />
           <Graph title="Anomaly Rate"/>

@@ -10,6 +10,7 @@ import Reset from "./styles/Reset";
 import THEME from "./styles/MUI-theme";
 import TrafficPage from "./modules/traffic/pages/traffic-page";
 import SideBar from "./common/components/SideBar";
+import NavBar from "./common/components/NavBar";
 
 function App() {
   return (

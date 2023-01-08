@@ -6,5 +6,7 @@ export default createGlobalStyle`
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
+
+    font-family: var(--font-family);
   }
 `;
