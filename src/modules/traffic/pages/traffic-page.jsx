@@ -6,7 +6,7 @@ import AnomalyDisplay from "../../../common/components/AnomalyDisplay"
 function TrafficPage() {
   return (
     <>
-      <NavBar pageName="Traffic"/>
+      <NavBar pageName="TRAFFIC PAGE"/>
       <Container>
         <TrafficDisplay title="Traffic"/>
         <AnomalyDisplay title="Anomaly List"/>
@@ -17,6 +17,7 @@ function TrafficPage() {
 
 const Container = styled.div`
   margin-left: var(--sidebar-width);
+  padding: var(--container-padding);
 `;
 
 export default TrafficPage;

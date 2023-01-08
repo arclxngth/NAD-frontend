@@ -9,7 +9,7 @@ function TrafficDisplay({ title }) {
     <>
       <Container>
         <h1>{ title }</h1>
-        <DividerLine thic="10px" />
+        <DividerLine thic="10px" color="var(--background-color)" />
         <Table>
           <TableHeader>
             <h3>IP ADDRESS</h3>
@@ -74,11 +74,15 @@ const Table = styled.div`
 
 const Container = styled.div`
   background-color: var(--white);
-  margin: 1vw 5vw;
-  padding: 1vw;
+  margin: var(--card-margin);
+  padding: var(--card-padding);
+
+  box-shadow: var(--card-box-shadow);
+  
+  margin-bottom: 2vw;
 
   h1 {
-    margin: 20px;
+    margin: var(--card-header-margin);
 
     color: black;
     font-weight: bold;

@@ -17,8 +17,9 @@ function PasswordFormInput({ callback, label, type, placeholder }) {
         variant="filled"
         sx={{
           backgroundColor: "var(--white)",
-          borderRadius: "5px",
+          borderRadius: "10px",
           fontFamily: "Rubik",
+          width: "20vw",
           "&:hover": {
               border: "1px solid var(--input-border-hover)"
           }
@@ -30,7 +31,9 @@ function PasswordFormInput({ callback, label, type, placeholder }) {
 }
 
 const FormWrapper = styled.div`
-  
+  margin-bottom: 1vw;
+
+  width: 20vw;
 `;
 
 export default PasswordFormInput;

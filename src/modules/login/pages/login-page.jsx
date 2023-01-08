@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../../../common/components/Button';
 import InputForm from "../../../common/components/FormInput"
 import PasswordFormInput from '../../../common/components/PasswordFormInput';
 
@@ -37,52 +36,56 @@ function LoginPage() {
             type="string"
             placeholder="password"
           />
-          <Submission>
-            <Button onClick={handleSignIn}>Sign In</Button>
-          </Submission>
+          <Button onClick={() => handleSignIn()}>Sign In</Button>
         </Content>
       </Container>
     </>
   );
 }
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+`;
+
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   height: 100vh;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute; */
 `;
+
 
 const ImageContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
+const Button = styled.button`
+  background-color: #6BFFB8;
+  color: var(--black);
 
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+  width: 15vw;
+  padding: 1vw;
+  border-radius: 10px;
+  border: none;
 
-  height: 100vh;
-`;
+  font-size: medium;
 
-const Submission = styled.div`
-  margin: 10px;
-  width: 30%;
+  transition: .3s;
+  
+  :hover {
+    cursor: pointer;
+    background-color: #2CEAA3;
+  }
 `;
 
 export default LoginPage;

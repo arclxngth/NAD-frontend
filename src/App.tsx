@@ -10,7 +10,7 @@ import Reset from "./styles/Reset";
 import THEME from "./styles/MUI-theme";
 import TrafficPage from "./modules/traffic/pages/traffic-page";
 import SideBar from "./common/components/SideBar";
-import NavBar from "./common/components/NavBar";
+import DemoPage from "./modules/demo/pages/demo-page";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/traffic" element={<TrafficPage />}/>
+        <Route path="/demo" element={<DemoPage />}/>
       </Routes>
       </ThemeProvider>
     </>

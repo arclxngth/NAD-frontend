@@ -24,7 +24,7 @@ function SideBar() {
       <DividerLine color="var(--white)"/>
       <List>
         {['Home', 'Traffic', 'Demo'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem key={text} disablePadding font>
             <ListItemButton onClick={(e) => onHandleClick("/" + text.toLowerCase())}>
               <ListItemText primary={text}/>
             </ListItemButton> 

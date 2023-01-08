@@ -18,13 +18,10 @@ function NavBar({ pageName }) {
     setAnchorEl(null);
   };
 
-
   return (
     <>
       <Container>
-        <Content>
-          <h1>{ pageName }</h1>
-        </Content>
+        <h1>{ pageName }</h1>
         <User>
           <ProfileButton onClick={handleMenu}>Login</ProfileButton>
           <Menu
@@ -43,7 +40,7 @@ function NavBar({ pageName }) {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </User>
       </Container>
@@ -52,19 +49,19 @@ function NavBar({ pageName }) {
 }
 
 const ProfileButton = styled.button`
-  width: 100px;
-  height: 50px;
+  width: 5vw;
+  height: 5vh;
+  float: right;
 
   color: black;
 `;
 
 const User = styled.div`
-  margin: 50px;
-
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: end;
 
-  align-items: flex-end;
+  margin-right: 2vw;
 `;
 
 const Container = styled.div`
@@ -72,14 +69,15 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr;
 
   margin-left: var(--sidebar-width);
-`;
+  padding: 1vw 2vw;
 
-const Content = styled.div`
-  /* margin-left: var(--sidebar-width); */
+  box-shadow: var(--card-box-shadow);
 
   h1 {
     align-items: center;
-    font-family: var(--font-family) ;
+    font-family: var(--font-family);
+    font-weight: bold;
+    color: var(--sidebar-color);
   }
 `;
 

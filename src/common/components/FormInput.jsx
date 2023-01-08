@@ -15,8 +15,9 @@ function FormInput({ callback, label, type, placeholder }) {
         variant="filled"
         sx={{
           backgroundColor: "var(--white)",
-          borderRadius: "5px",
+          borderRadius: "10px",
           fontFamily: "Rubik",
+          width: "20vw",
           "&:hover": {
               border: "1px solid var(--input-border-hover)"
           }
@@ -28,6 +29,7 @@ function FormInput({ callback, label, type, placeholder }) {
 }
 
 const FormWrapper = styled.div`
+  margin: 1vw;
 `;
 
 export default FormInput;

@@ -18,14 +18,13 @@ function HomePage() {
 }
 
 const Content = styled.div`
-  margin: 25px;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
 
 const Container = styled.div`
   margin-left: var(--sidebar-width);
+  padding: var(--container-padding);
 `;
 
 export default HomePage;

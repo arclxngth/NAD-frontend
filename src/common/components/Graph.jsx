@@ -8,9 +8,6 @@ let dataPoints =[];
 function Graph({ title, }) {
   const CanvasJSChart = CanvasJSReact.CanvasJSChart;
   const options = {
-    title: {
-      text: "Basic Column Chart in React"
-    },
     data: [{				
       type: "column",
       dataPoints: [
@@ -36,10 +33,13 @@ function Graph({ title, }) {
 
 const Container = styled.div`
   background-color: var(--white);
-  margin: 10px;
+  margin: var(--card-margin);
+  padding: var(--card-padding);
+  
+  box-shadow: var(--card-box-shadow);
 
   h1 {
-    margin: 20px;
+    margin: var(--card-header-margin);
 
     font-family: var(--font-family);
     color: black;
