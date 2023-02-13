@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import InputForm from "../../../common/components/FormInput"
 import PasswordFormInput from '../../../common/components/PasswordFormInput';
 
-
 function LoginPage() {
   const [ username, setUsername ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -59,6 +58,8 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr;
 
   height: 100vh;
+
+  background-color: var(--sidebar-color);
 `;
 
 

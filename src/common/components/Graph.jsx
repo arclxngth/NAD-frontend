@@ -1,31 +1,42 @@
-import CanvasJSReact from '../../assets/canvasjs.react';
-
 import styled from 'styled-components';
 import DividerLine from './DividerLine';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+} from 'chart.js';
 
-let dataPoints =[];
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+);
 
 function Graph({ title, }) {
-  const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-  const options = {
-    data: [{				
-      type: "column",
-      dataPoints: [
-        { label: "Apple",  y: 10  },
-        { label: "Orange", y: 15  },
-        { label: "Banana", y: 25  },
-        { label: "Mango",  y: 30  },
-        { label: "Grape",  y: 28  }
-      ]
-    }]
- }
+  const labels = [ "1-JAN-2023", "2-JAN-2023", "3-JAN-2023" ]
+  const data = {
+    labels,
+    datasets: [
+      {
+        data: [1, 100, 200],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      }
+    ],
+  };
 
   return (
     <>
       <Container>
         <h1>{ title }</h1>
         <DividerLine color="var(--background-color)" thic="10px" />
-        <CanvasJSChart options={options}/>
+        <Line data={ data }/>
       </Container>
     </>
   );

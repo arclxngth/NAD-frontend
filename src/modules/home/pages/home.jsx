@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import SideBar from '../../../common/components/SideBar';
 import NavBar from '../../../common/components/NavBar';
 import Graph from '../../../common/components/Graph';
 
