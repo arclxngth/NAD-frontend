@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import InputForm from "../../../common/components/FormInput"
 import PasswordFormInput from '../../../common/components/PasswordFormInput';
+import { loginQuery } from '../../../common/api/queries';
 
 function LoginPage() {
   const [ username, setUsername ] = useState("");
@@ -11,9 +12,16 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  function handleSignIn() {
+  async function handleSignIn() {
     // if login success
-    navigate(`/home`)
+    try {
+      const res = await loginQuery(username, password);
+      localStorage.setItem("token", res.token);
+      navigate(`/home`)
+    } catch(err) {
+      alert("error");
+    }
+    
   }
 
   return (
