@@ -1,15 +1,35 @@
 import styled from 'styled-components';
 import NavBar from '../../../common/components/NavBar';
-import Graph from '../../../common/components/Graph';
+import TrafficGraph from '../../../common/components/TrafficGraph';
+import AnomalyRateGraph from '../../../common/components/AnomalyRateGraph';
+import { getTrafficsQuery } from '../../../common/api/queries';
+import { useEffect, useState } from 'react';
 
 function HomePage() {
+  const [ datas, setDatas ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await getTrafficsQuery();
+      setDatas(res);
+      setIsLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
+  if(isLoading) {
+    return null;
+  }
+
   return (
     <>
       <NavBar pageName="HOME PAGE" />
       <Container>
         <Content>
-          <Graph title="Traffic" />
-          <Graph title="Anomaly Rate"/>
+          <TrafficGraph datas />
+          <AnomalyRateGraph title="Anomaly Rate"/>
         </Content>
       </Container>
     </>

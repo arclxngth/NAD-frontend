@@ -9,6 +9,8 @@ export default createGlobalStyle`
     --white: #FFFFFF;
     --form-grey: #B6B6B6;
     --input-border-hover: #6BFFB8;
+    --normal-color: #30FF37;
+    --anomaly-color: #FF4C4C;
     --font-family: "Rubik";
 
     --sidebar-width: 13vw;

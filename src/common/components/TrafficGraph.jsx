@@ -18,8 +18,8 @@ ChartJS.register(
   Tooltip,
 );
 
-function Graph({ title, }) {
-  const labels = [ "1-JAN-2023", "2-JAN-2023", "3-JAN-2023" ]
+function TrafficGraph({ datas }) {
+  const labels = [ "1-JAN-2023", "2-JAN-2023", "3-JAN-2023" ];
   const data = {
     labels,
     datasets: [
@@ -34,7 +34,7 @@ function Graph({ title, }) {
   return (
     <>
       <Container>
-        <h1>{ title }</h1>
+        <h1>{ "Traffic" }</h1>
         <DividerLine color="var(--background-color)" thic="10px" />
         <Line data={ data }/>
       </Container>
@@ -58,4 +58,4 @@ const Container = styled.div`
   }
 `;
 
-export default Graph;
+export default TrafficGraph;

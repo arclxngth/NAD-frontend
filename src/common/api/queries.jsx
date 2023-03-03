@@ -19,3 +19,12 @@ export function getTrafficsQuery() {
       .catch(reject)
   })
 }
+
+export function createTrafficDummies(amount) {
+  return new Promise((resolve, reject) => {
+    axios
+    .post("https://nad-api.onrender.com/api/traffics", new URLSearchParams({ amount }), options)
+      .then((res) => resolve(res.data))
+      .catch(reject)
+  })
+}

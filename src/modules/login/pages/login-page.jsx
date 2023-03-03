@@ -15,11 +15,11 @@ function LoginPage() {
   async function handleSignIn() {
     // if login success
     try {
-      const res = await loginQuery(username, password);
-      localStorage.setItem("token", res.token);
+      // const res = await loginQuery(username, password);
+      // localStorage.setItem("token", res.token);
       navigate(`/home`)
     } catch(err) {
-      alert("error");
+      alert("username or password is invalid");
     }
     
   }
