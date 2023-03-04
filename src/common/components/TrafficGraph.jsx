@@ -19,12 +19,29 @@ ChartJS.register(
 );
 
 function TrafficGraph({ datas }) {
-  const labels = [ "1-JAN-2023", "2-JAN-2023", "3-JAN-2023" ];
+  const options = { day: '2-digit', month:'2-digit', year:'numeric', timeZone: "Asia/Bangkok" };
+  const countByDate = datas.reduce((count, e) => {
+    const date = new Date(e.createdAt).toLocaleString("en-GB", options);
+    if (!count[date]) {
+      count[date] = {};
+    }
+
+    const value = e.status;
+    if (!count[date][value]) {
+      count[date][value] = 0;
+    }
+    count[date][value]++;
+    return count;
+  }, {});
+
+  const labels = Object.keys(countByDate);
+  const displayDatas = Object.values(countByDate).map(e => e.anomaly)
+
   const data = {
     labels,
     datasets: [
       {
-        data: [1, 100, 200],
+        data: displayDatas,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
@@ -43,6 +60,8 @@ function TrafficGraph({ datas }) {
 }
 
 const Container = styled.div`
+  height: 60vh;
+
   background-color: var(--white);
   margin: var(--card-margin);
   padding: var(--card-padding);

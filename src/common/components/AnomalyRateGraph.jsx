@@ -14,23 +14,22 @@ ChartJS.register(
 
 function AnomalyRateGraph({ datas }) {
   const labels = [ "Normal", "Anomaly" ];
+
+  let nNormal = 0, nAnomaly = 0;
+  datas.forEach(e => e.status === "normal" ? nNormal += 1 : nAnomaly += 1)
+
   const displayData = {
     labels,
     datasets: [
       {
-        data: [12, 19],
+        data: [ nNormal, nAnomaly ],
         backgroundColor: [
-          '#30FF37',
-          '#FF4C4C',
+          "#30FF37",
+          "#FF4C4C",
         ],
       },
     ]
   };
-
-  const options = {
-    // responsive: true,
-    maintainAspectRatio: false
-  }
 
   return (
     <>
@@ -47,15 +46,24 @@ function AnomalyRateGraph({ datas }) {
             <span>Anomaly</span>
           </div>
         </GraphLegend>
-        <div style={{ height: "200px"}}>
+        <Graph>
           <Doughnut 
             data={ displayData } 
           />
-        </div>
+        </Graph>
       </Container>
     </>
   );
 }
+
+const Graph = styled.div`
+  /* width: 20vw; */
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`;
 
 const Container = styled.div`
   background-color: var(--white);

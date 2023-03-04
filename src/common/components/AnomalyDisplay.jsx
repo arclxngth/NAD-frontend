@@ -3,9 +3,8 @@ import { Menu, MenuItem } from '@mui/material';
 import React from "react";
 
 import DividerLine from "./DividerLine";
-import anomaly_count from "../dummies/anomaly-count.json"
 
-function AnomalyDisplay({ title }) {
+function AnomalyDisplay({ datas }) {
   
   const [ auth, setAuth ] = React.useState(true);
   const [ anchorEl, setAnchorEl ] = React.useState(null);
@@ -22,10 +21,23 @@ function AnomalyDisplay({ title }) {
     setAnchorEl(null);
   };
 
+  const countByAnomaly = datas.reduce((count, e) => {
+    if (e.status === "anomaly") {
+      if (count[e.srcIp]) {
+        count[e.srcIp] += 1;
+      } else {
+        count[e.srcIp] = 1;
+      }
+    }
+    return count;
+  }, {});
+
+  // console.log(countByAnomaly);
+
   return (
     <>
       <Container>
-        <h1>{ title }</h1>
+        <h1>Anomaly List</h1>
         <DividerLine thic="10px" color="var(--background-color)" />
         <Table>
           <TableHeader>
@@ -33,11 +45,11 @@ function AnomalyDisplay({ title }) {
             <h3>COUNT</h3>
           </TableHeader>
           <TableBody>
-            {anomaly_count.map((record) => {
+            { Object.keys(countByAnomaly).map((key) => {
               return (
                 <>
-                  <h3>{record.ip}</h3>
-                  <h3>{record.count}</h3>
+                  <h3>{key}</h3>
+                  <h3>{countByAnomaly[key]}</h3>
                   <Button><img src="/icons/dehaze.png"/></Button>
                   {/* <Menu
                     id="menu-appbar"
@@ -59,7 +71,7 @@ function AnomalyDisplay({ title }) {
                   </Menu> */}
                 </>
               );
-            })}
+            }) }
           </TableBody>
         </Table>
       </Container>

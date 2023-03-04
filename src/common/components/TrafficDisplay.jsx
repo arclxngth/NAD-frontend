@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import DividerLine from "./DividerLine";
 
-import traffic from "../dummies/traffic.json"
-
-function TrafficDisplay({ title }) {
+function TrafficDisplay({ datas }) {
+  datas.forEach(e => e.createdAt = new Date(e.createdAt).toLocaleString("en-GB", { timeZone: "Asia/Bangkok" }));
 
   return (
     <>
       <Container>
-        <h1>{ title }</h1>
+        <h1>{ "Traffic" }</h1>
         <DividerLine thic="10px" color="var(--background-color)" />
         <Table>
           <TableHeader>
@@ -17,12 +16,12 @@ function TrafficDisplay({ title }) {
             <h3>TIMESTAMP</h3>
           </TableHeader>
           <TableBody>
-            {traffic.map((record) => {
+            {datas.map((record) => {
               return (
                 <>
-                  <h3>{record.ip}</h3>
+                  <h3>{record.srcIp}</h3>
                   <h3>{record.status}</h3>
-                  <h3>{record.date}</h3>
+                  <h3>{record.createdAt}</h3>
                 </>
               );
             })}

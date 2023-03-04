@@ -28,17 +28,27 @@ function HomePage() {
       <NavBar pageName="HOME PAGE" />
       <Container>
         <Content>
-          <TrafficGraph datas />
-          <AnomalyRateGraph title="Anomaly Rate"/>
+          <LineGraph>
+            <TrafficGraph datas={datas} />
+          </LineGraph>
+          <RingGraph>
+            <AnomalyRateGraph datas={datas} />
+          </RingGraph>
         </Content>
       </Container>
     </>
   )
 }
 
+const LineGraph = styled.div`
+  width: 120vw;
+`;
+
+const RingGraph = styled.div`
+`;
+
 const Content = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 `;
 
 const Container = styled.div`

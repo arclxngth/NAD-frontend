@@ -15,7 +15,7 @@ export default createGlobalStyle`
 
     --sidebar-width: 13vw;
     --container-padding: 2vw;
-    --card-margin: 1vw 3vw;
+    --card-margin: 1vw 1vw;
     --card-padding: 1vw;
     --card-header-margin: 0vw 1vw;
     --card-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
