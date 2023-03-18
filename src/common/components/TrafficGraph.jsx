@@ -60,7 +60,7 @@ function TrafficGraph({ datas }) {
 }
 
 const Container = styled.div`
-  height: 60vh;
+  height: 65vh;
 
   background-color: var(--white);
   margin: var(--card-margin);

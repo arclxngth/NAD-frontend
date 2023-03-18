@@ -58,7 +58,7 @@ function AnomalyRateGraph({ datas }) {
 
 const Graph = styled.div`
   /* width: 20vw; */
-  height: 50vh;
+  height: 40vh;
 
   display: flex;
   justify-content: center;

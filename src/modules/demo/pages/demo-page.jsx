@@ -35,8 +35,15 @@ function DemoPage() {
 
 const Button = styled.button`
   padding: 0.5vw;
+  margin: 0.2vw 1vw;
 
   border-radius: 10px;
+  font-family: var(--font-family);
+
+  :hover {
+    cursor: pointer;
+    background-color: #2CEAA3;
+  }
 `;
 
 const Container = styled.div`

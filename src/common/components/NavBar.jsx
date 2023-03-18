@@ -1,10 +1,13 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 import { Menu, MenuItem } from '@mui/material';
-import React from 'react';
 
 function NavBar({ pageName }) {
   const [ auth, setAuth ] = React.useState(true);
   const [ anchorEl, setAnchorEl ] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -18,12 +21,19 @@ function NavBar({ pageName }) {
     setAnchorEl(null);
   };
 
+  function handleLogout() {
+    localStorage.removeItem("token");
+    handleClose();
+    navigate("/");
+  }
+
   return (
     <>
       <Container>
         <h1>{ pageName }</h1>
         <User>
-          <ProfileButton onClick={handleMenu}>Login</ProfileButton>
+          {/* <button><img src="icons/person-logo.png"/></button> */}
+          <ProfileButton onClick={handleMenu}><img src="icons/person-logo.png"/></ProfileButton>
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
@@ -39,8 +49,7 @@ function NavBar({ pageName }) {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </User>
       </Container>
@@ -50,10 +59,20 @@ function NavBar({ pageName }) {
 
 const ProfileButton = styled.button`
   width: 5vw;
-  height: 5vh;
+  height: 6vh;
   float: right;
+  
+  border: none;
+  background-color: var(--background-color);
 
-  color: black;
+  img {
+    height: 100%;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+
 `;
 
 const User = styled.div`
