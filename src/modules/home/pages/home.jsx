@@ -4,6 +4,7 @@ import TrafficGraph from '../../../common/components/TrafficGraph';
 import AnomalyRateGraph from '../../../common/components/AnomalyRateGraph';
 import { getTrafficsQuery } from '../../../common/api/queries';
 import { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function HomePage() {
   const [ datas, setDatas ] = useState([]);
@@ -11,7 +12,8 @@ function HomePage() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await getTrafficsQuery();
+      const token = "Bearer " + localStorage.getItem("token");
+      const res = await getTrafficsQuery(token);
       setDatas(res);
       setIsLoading(false);
     }
@@ -20,7 +22,11 @@ function HomePage() {
   }, []);
 
   if(isLoading) {
-    return null;
+    return (
+      <LoadingZone>
+        <CircularProgress />;
+      </LoadingZone>
+    )
   }
 
   return (
@@ -39,6 +45,14 @@ function HomePage() {
     </>
   )
 }
+
+const LoadingZone = styled.div`
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const LineGraph = styled.div`
   width: 120vw;

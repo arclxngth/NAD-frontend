@@ -1,9 +1,10 @@
+import dayjs from "dayjs";
 import styled from "styled-components";
 import DividerLine from "./DividerLine";
 
 function TrafficDisplay({ datas }) {
-  datas.forEach(e => e.createdAt = new Date(e.createdAt).toLocaleString("en-GB", { timeZone: "Asia/Bangkok" }));
-
+  datas.forEach(e => e.createdAt = dayjs(e.createdAt).format("DD/MMM/YYYY HH:mm:s"));
+  
   return (
     <>
       <Container>
@@ -21,7 +22,7 @@ function TrafficDisplay({ datas }) {
                 <>
                   <h3>{record.srcIp}</h3>
                   <h3>{record.status}</h3>
-                  <h3>{record.createdAt}</h3>
+                  <h3>{String(record.createdAt)}</h3>
                 </>
               );
             })}

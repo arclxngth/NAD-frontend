@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import NavBar from "../../../common/components/NavBar";
 import TrafficDisplay from "../../../common/components/TrafficDisplay"
@@ -11,7 +12,8 @@ function TrafficPage() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await getTrafficsQuery();
+      const token = "Bearer " + localStorage.getItem("token");
+      const res = await getTrafficsQuery(token);
       setDatas(res);
       setIsLoading(false);
     }
@@ -20,10 +22,12 @@ function TrafficPage() {
   }, []);
 
   if(isLoading) {
-    return null;
+    return (
+      <LoadingZone>
+        <CircularProgress />;
+      </LoadingZone>
+    )
   }
-
-  console.log(datas);
 
   return (
     <>
@@ -34,6 +38,14 @@ function TrafficPage() {
     </>
   );
 }
+
+const LoadingZone = styled.div`
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Container = styled.div`
   margin-left: var(--sidebar-width);
